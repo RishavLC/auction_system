@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyBid - Auction Management System</title>
+    <title>EasyBid - Online Auction Management System</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>EasyBid Auction</h1>
+        <h1>EasyBid Auction Platform</h1>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -21,29 +21,29 @@
 
     <section id="home">
         <h2>Welcome to EasyBid</h2>
-        <p>Participate in exciting online auctions and get the best deals!</p>
+        <p>Join live auctions, bid in real-time, and win exclusive products!</p>
     </section>
 
     <section id="auctions">
         <h2>Ongoing Auctions</h2>
         <div class="auction-list" id="auction-list">
-            <!-- Auction items will be dynamically populated here -->
+            <!-- Auction items will appear here -->
         </div>
     </section>
 
     <section id="my-bids">
         <h2>My Bids</h2>
         <ul id="my-bid-list">
-            <!-- User's bids will be listed here -->
+            <!-- Your bids will show here -->
         </ul>
     </section>
 
     <section id="contact">
         <h2>Contact Us</h2>
         <form id="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send</button>
         </form>
     </section>
