@@ -3,53 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyBid - Online Auction Management System</title>
+    <title>EasyBid - Professional Online Auction Platform</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>EasyBid Auction Platform</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#auctions">Auctions</a></li>
-                <li><a href="#my-bids">My Bids</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">EasyBid</h1>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#auctions">Auctions</a></li>
+                    <li><a href="#my-bids">My Bids</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="home">
-        <h2>Welcome to EasyBid</h2>
-        <p>Join live auctions, bid in real-time, and win exclusive products!</p>
-    </section>
+    <main>
+        <section id="home" class="section home">
+            <div class="container">
+                <h2>Welcome to EasyBid</h2>
+                <p class="subtitle">Join live auctions, bid in real-time, and win exclusive products from trusted sellers.</p>
+                <button class="btn-primary" onclick="document.getElementById('auctions').scrollIntoView({behavior: 'smooth'})">Explore Auctions</button>
+            </div>
+        </section>
 
-    <section id="auctions">
-        <h2>Ongoing Auctions</h2>
-        <div class="auction-list" id="auction-list">
-            <!-- Auction items will appear here -->
+        <section id="auctions" class="section">
+            <div class="container">
+                <h2>Ongoing Auctions</h2>
+                <div class="auction-list" id="auction-list">
+                    <!-- Auction items will appear here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="my-bids" class="section">
+            <div class="container">
+                <h2>My Bids</h2>
+                <ul id="my-bid-list" class="bid-list">
+                    <!-- Your bids will show here -->
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <form id="contact-form" class="contact-form">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <textarea id="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 EasyBid. All rights reserved.</p>
         </div>
-    </section>
-
-    <section id="my-bids">
-        <h2>My Bids</h2>
-        <ul id="my-bid-list">
-            <!-- Your bids will show here -->
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form id="contact-form">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 EasyBid. All rights reserved.</p>
     </footer>
 
     <script src="scripts.js"></script>

@@ -1,59 +1,110 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
-    background-color: #f4f4f4;
-}
-
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-nav ul li {
-    margin: 0 15px;
+body {
+    background: #f8f9fa;
+    color: #333;
 }
 
-nav ul li a {
-    color: white;
+.header {
+    background-color: #1e293b;
+    color: #fff;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
     text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s;
 }
 
-section {
-    padding: 20px;
-    margin: 20px;
-    background: white;
-    border-radius: 8px;
+.nav-links a:hover {
+    color: #facc15;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.home {
+    background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.btn-primary {
+    background-color: #facc15;
+    color: #1e293b;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
 }
 
 .auction-list {
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .auction-item {
-    border: 1px solid #ddd;
-    padding: 15px;
-    width: 200px;
-    border-radius: 8px;
-    background: #fafafa;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 250px;
+    text-align: center;
 }
 
-button {
-    background-color: #4CAF50;
+footer {
+    background: #1e293b;
     color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    text-align: center;
+    padding: 20px 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
