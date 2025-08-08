@@ -1,73 +1,196 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyBid - Professional Online Auction Platform</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Auction House — Welcome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1: linear-gradient(135deg,#0f172a 0%, #0b2545 50%, #2b0b3a 100%); /* deep navy -> plum */
+      --accent1: #FF6B6B; /* coral */
+      --accent2: #6EE7B7; /* mint */
+      --accent3: #FFD166; /* warm gold */
+      --glass: rgba(255,255,255,0.06);
+      --glass-2: rgba(255,255,255,0.04);
+      --card-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{
+      background: var(--bg1);
+      color: #E6EEF8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;align-items:center;justify-content:center;padding:40px;
+    }
+
+    .container{
+      width:100%;max-width:1150px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;padding:28px;box-shadow:var(--card-shadow);backdrop-filter: blur(8px);
+      position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.04);
+    }
+
+    /* decorative blobs */
+    .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:0.9;transform:translate(-10%,-10%)}
+    .b1{width:420px;height:420px;right:-120px;top:-80px;background:radial-gradient(circle at 30% 30%, #5B2E91 0%, rgba(91,46,145,0.6) 40%, transparent 60%)}
+    .b2{width:360px;height:360px;left:-140px;bottom:-80px;background:radial-gradient(circle at 70% 70%, #FF6B6B 0%, rgba(255,107,107,0.5) 40%, transparent 60%)}
+    .b3{width:220px;height:220px;left:60%;top:40%;background:radial-gradient(circle at 30% 40%, #6EE7B7 0%, rgba(110,231,183,0.4) 40%, transparent 60%)}
+
+    .grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+
+    .hero{
+      padding:28px 26px;
+    }
+    h1{margin:0;font-size:36px;line-height:1.02;font-weight:800;letter-spacing:-0.02em;color:linear-gradient(90deg,#fff,#f0f8ff)}
+    .sub{margin-top:10px;color:rgba(230,238,248,0.9);font-weight:500}
+
+    .kicker{display:inline-block;background:linear-gradient(90deg,var(--accent2),var(--accent3));color:#081826;padding:6px 12px;border-radius:999px;font-weight:700;font-size:13px;margin-bottom:14px}
+
+    .cta-row{margin-top:20px;display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),#FF8A80);color:#081826;box-shadow:0 8px 20px rgba(255,107,107,0.14)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.08);color:inherit}
+    .info-card{margin-top:22px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:12px;align-items:center}
+    .info-card .dot{width:10px;height:10px;border-radius:50%;background:var(--accent3);flex:0 0 10px}
+    .info-card p{margin:0;font-size:14px;color:rgba(230,238,248,0.85)}
+
+    /* right column card */
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+    .auction-item{display:flex;gap:12px;align-items:center;padding:10px;border-radius:12px;background:var(--glass-2);margin-bottom:12px}
+    .thumb{width:64px;height:64px;border-radius:10px,background:#fff;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .thumb img{width:100%;height:100%;object-fit:cover}
+    .meta h4{margin:0;font-size:15px}
+    .meta small{display:block;color:rgba(230,238,248,0.6)}
+
+    .stats{display:flex;gap:14px;margin-top:14px}
+    .stat{flex:1;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));text-align:center}
+    .stat h3{margin:0;font-size:18px}
+    .stat p{margin:6px 0 0 0;color:rgba(230,238,248,0.6)}
+
+    footer{margin-top:18px;color:rgba(230,238,248,0.55);font-size:13px}
+
+    /* responsive */
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr;}
+      .panel{order:-1}
+      h1{font-size:28px}
+    }
+
+    /* subtle entrance animation */
+    .fade-up{opacity:0;transform:translateY(8px);animation:fadeUp .8s ease forwards}
+    .delay-1{animation-delay:0.06s}.delay-2{animation-delay:0.12s}.delay-3{animation-delay:0.18s}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+
+    /* small countdown */
+    .countdown{display:inline-grid;grid-auto-flow:column;gap:8px;margin-top:14px}
+    .countdown .block{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:8px;text-align:center}
+    .countdown .num{font-weight:800}
+  </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <h1 class="logo">EasyBid</h1>
-            <nav class="navbar">
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#auctions">Auctions</a></li>
-                    <li><a href="#my-bids">My Bids</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+  <div class="container" role="main">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+
+    <div class="grid">
+      <section class="hero">
+        <span class="kicker fade-up delay-1">Live • Trusted Auctions</span>
+        <h1 class="fade-up delay-2">AuctionHouse — Discover. Compete. Win.</h1>
+        <p class="sub fade-up delay-3">Explore curated auctions for art, collectibles, gadgets and experiences. Bidding is simple — register, place a bid, and take home the item if you're the highest bidder when the clock stops.</p>
+
+        <div class="cta-row fade-up delay-3">
+          <button class="btn btn-primary" onclick="alert('Demo CTA — browse auctions')">Browse Auctions</button>
+          <button class="btn btn-ghost" onclick="alert('Demo CTA — how auctions work')">How it works</button>
         </div>
-    </header>
 
-    <main>
-        <section id="home" class="section home">
-            <div class="container">
-                <h2>Welcome to EasyBid</h2>
-                <p class="subtitle">Join live auctions, bid in real-time, and win exclusive products from trusted sellers.</p>
-                <button class="btn-primary" onclick="document.getElementById('auctions').scrollIntoView({behavior: 'smooth'})">Explore Auctions</button>
-            </div>
-        </section>
-
-        <section id="auctions" class="section">
-            <div class="container">
-                <h2>Ongoing Auctions</h2>
-                <div class="auction-list" id="auction-list">
-                    <!-- Auction items will appear here -->
-                </div>
-            </div>
-        </section>
-
-        <section id="my-bids" class="section">
-            <div class="container">
-                <h2>My Bids</h2>
-                <ul id="my-bid-list" class="bid-list">
-                    <!-- Your bids will show here -->
-                </ul>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <form id="contact-form" class="contact-form">
-                    <input type="text" id="name" placeholder="Your Name" required>
-                    <input type="email" id="email" placeholder="Your Email" required>
-                    <textarea id="message" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn-primary">Send Message</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 EasyBid. All rights reserved.</p>
+        <div class="info-card fade-up delay-3" style="max-width:640px">
+          <div style="display:flex;flex-direction:column;align-items:flex-start">
+            <div style="display:flex;gap:8px;align-items:center"><div style="width:8px;height:8px;border-radius:50%;background:var(--accent2)"></div><strong>Pro tip:</strong></div>
+            <p style="margin-top:8px;max-width:600px">Set a maximum bid you can afford, watch the clock, and snipe smartly — auctions reward strategy. Always verify seller ratings and item condition before you bid.</p>
+          </div>
         </div>
-    </footer>
 
-    <script src="scripts.js"></script>
+        <div class="fade-up delay-3" style="margin-top:18px">
+          <strong>What is an auction?</strong>
+          <p style="margin:8px 0 0 0;color:rgba(230,238,248,0.75);max-width:720px">An auction is a competitive sale where interested buyers place progressively higher bids. It can be live or timed; the item goes to the highest bidder when the auction ends. Auctions are used to discover true market value and connect buyers with rare or limited items.</p>
+        </div>
+
+        <div class="countdown fade-up delay-3" aria-hidden="true">
+          <div class="block"><div class="num" id="cd-h">00</div><div style="font-size:11px">hrs</div></div>
+          <div class="block"><div class="num" id="cd-m">00</div><div style="font-size:11px">mins</div></div>
+          <div class="block"><div class="num" id="cd-s">00</div><div style="font-size:11px">secs</div></div>
+        </div>
+
+      </section>
+
+      <aside class="panel">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <strong style="font-size:15px">Trending Now</strong>
+            <div style="font-size:12px;color:rgba(230,238,248,0.6)">Live auctions ending soon</div>
+          </div>
+          <div style="font-size:12px;color:rgba(230,238,248,0.55)">View all</div>
+        </div>
+
+        <div style="margin-top:12px">
+          <div class="auction-item">
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1602524200457-6d5b1a0f6b1f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="item"></div>
+            <div class="meta">
+              <h4>Vintage Camera — Leica M3</h4>
+              <small>Current bid • $1,250 • 12 bids</small>
+            </div>
+          </div>
+
+          <div class="auction-item">
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1536305030011-49d19f6b3e0f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="item"></div>
+            <div class="meta">
+              <h4>Signed Vinyl — Classic Rock</h4>
+              <small>Current bid • $420 • 8 bids</small>
+            </div>
+          </div>
+
+          <div class="auction-item">
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1514894780025-7b2d3c3b1b4a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="item"></div>
+            <div class="meta">
+              <h4>Art Print — Limited Edition</h4>
+              <small>Current bid • $980 • 5 bids</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><h3>3.2K</h3><p>Active Bidders</p></div>
+          <div class="stat"><h3>125</h3><p>Live Auctions</p></div>
+          <div class="stat"><h3>98%</h3><p>Positive Feedback</p></div>
+        </div>
+
+        <footer>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>Secure payments • Buyer protection</div>
+            <div style="font-weight:700">Join free</div>
+          </div>
+        </footer>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    // small countdown demo to next sample auction end (5 minutes from load)
+    const target = Date.now() + 1000*60*5;
+    function update(){
+      const diff = Math.max(0, target - Date.now());
+      const hrs = Math.floor(diff/3600000);
+      const mins = Math.floor((diff%3600000)/60000);
+      const secs = Math.floor((diff%60000)/1000);
+      document.getElementById('cd-h').textContent = String(hrs).padStart(2,'0');
+      document.getElementById('cd-m').textContent = String(mins).padStart(2,'0');
+      document.getElementById('cd-s').textContent = String(secs).padStart(2,'0');
+      if(diff>0) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  </script>
 </body>
 </html>
