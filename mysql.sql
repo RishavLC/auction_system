@@ -16,3 +16,11 @@ CREATE TABLE users (--users table
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (role_id) REFERENCES roles(id)
 );
+
+INSERT INTO roles (role_name, description) VALUES
+('admin', 'Administrator with full access'),
+('user', 'Normal user with limited access');
+
+INSERT INTO users (username, password, role_id) VALUES
+('admin', 'admin', 1),
+('user1', 'user1', 2);
