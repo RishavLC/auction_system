@@ -1,0 +1,113 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f9;
+}
+
+/* Login/Register Form */
+.form-container {
+    width: 350px;
+    margin: 80px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-container input, .form-container button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.form-container button {
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.form-container button:hover {
+    background: #0056b3;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 220px;
+    background: #1e1e2f;
+    padding-top: 20px;
+    transition: width 0.3s;
+    overflow-x: hidden;
+}
+.sidebar.collapsed {
+    width: 70px;
+}
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    text-decoration: none;
+    color: #bdbdbd;
+    transition: 0.2s;
+    position: relative;
+}
+.sidebar a:hover {
+    background: #33334d;
+    color: #fff;
+}
+.sidebar i {
+    font-size: 20px;
+    margin-right: 15px;
+}
+.sidebar.collapsed a span {
+    display: none;
+}
+.sidebar a:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 75px;
+    background: #33334d;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 100;
+}
+
+/* Topbar */
+.topbar {
+    margin-left: 220px;
+    padding: 15px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    transition: margin-left 0.3s;
+}
+.sidebar.collapsed ~ .topbar {
+    margin-left: 70px;
+}
+
+/* Content */
+.content {
+    margin-left: 220px;
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+.sidebar.collapsed ~ .content {
+    margin-left: 70px;
+}
+
+/* Collapse Button */
+.collapse-btn {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px 15px;
+}

@@ -23,23 +23,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         exit();
     } else {
-        echo "Invalid username or password!";
+        echo "<script>alert('Invalid Username or Password!');</script>";
     }
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login - Auction System</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<div class="form-container">
     <h2>Login</h2>
     <form method="POST">
-        <label>Username:</label>
-        <input type="text" name="username" required><br><br>
-        <label>Password:</label>
-        <input type="password" name="password" required><br><br>
+        <input type="text" name="username" placeholder="Enter Username" required>
+        <input type="password" name="password" placeholder="Enter Password" required>
         <button type="submit">Login</button>
+        <p>Don't have an account? <a href="register.php">Register</a></p>
     </form>
+</div>
 </body>
 </html>
