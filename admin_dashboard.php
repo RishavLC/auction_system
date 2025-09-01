@@ -20,7 +20,6 @@ if (!isset($_SESSION["role_id"]) || $_SESSION["role_id"] != 1) {
 <div class="sidebar">
     <span class="collapse-btn" onclick="toggleSidebar()">☰</span>
     <a href="#" data-title="Dashboard"><i>🏠</i><span>Dashboard</span></a>
-    <a href="#" data-title="Manage Users"><i>👥</i><span>Manage Users</span></a>
     <a href="logout.php" data-title="Logout"><i>🚪</i><span>Logout</span></a>
 </div>
 

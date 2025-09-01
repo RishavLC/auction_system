@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="username" placeholder="Choose Username" required>
         <input type="password" name="password" placeholder="Choose Password" required>
         <button type="submit">Register</button>
-        <p>Already have an account? <a href="login.php">Login</a></p>
+        <p>Already have an account? <a href="index.php">Login</a></p>
     </form>
 </div>
 </body>
