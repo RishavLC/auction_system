@@ -7,9 +7,10 @@ CREATE TABLE roles (--roles table
     description VARCHAR(255) DEFAULT NULL
 );
 
-CREATE TABLE users (--users table
+CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(150) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     role_id INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -21,6 +22,6 @@ INSERT INTO roles (role_name, description) VALUES
 ('admin', 'Administrator with full access'),
 ('user', 'Normal user with limited access');
 
-INSERT INTO users (username, password, role_id) VALUES
-('admin', 'admin', 1),
-('user1', 'user1', 2);
+INSERT INTO users (username, email, password, role_id) VALUES
+('admin', 'admin@auction.com', 'admin', 1),
+('user1', 'user1@auction.com', 'user1', 2);
